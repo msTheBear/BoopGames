@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="76.462509mm"
+   height="11.176453mm"
+   viewBox="0 0 76.462509 11.176453"
+   version="1.1"
+   id="svg7069"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7071"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs7066">
+    <rect
+       x="613.58069"
+       y="332.95074"
+       width="349.5983"
+       height="49.942612"
+       id="rect62848" />
+    <rect
+       x="613.58069"
+       y="332.95074"
+       width="349.5983"
+       height="49.942612"
+       id="rect62850" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-109.01027,-108.93296)">
+    <g
+       id="g7047"
+       transform="matrix(0.79375,0,0,0.79375,101.14088,102.39132)"
+       inkscape:export-filename="BoopGamesText.svg"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96">
+      <text
+         xml:space="preserve"
+         transform="matrix(0.534458,0,0,0.49727805,-318.95923,-161.59349)"
+         id="text62714"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect62848);display:inline;fill:#32756c;fill-opacity:1;stroke:none"
+         inkscape:export-filename="png temp\BoopGames.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"><tspan
+           x="613.58008"
+           y="369.44438"
+           id="tspan7341"><tspan
+             style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+             id="tspan7339">BOOPGAMES</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         transform="matrix(0.534458,0,0,0.49727805,-318.95923,-162.92385)"
+         id="text62720"
+         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect62850);display:inline;fill:#ffaa47;fill-opacity:1;stroke:none"><tspan
+           x="613.58008"
+           y="369.44438"
+           id="tspan7345"><tspan
+             style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+             id="tspan7343">BOOPGAMES</tspan></tspan></text>
+    </g>
+  </g>
+</svg>
