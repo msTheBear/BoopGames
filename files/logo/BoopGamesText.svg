@@ -7,6 +7,8 @@
    viewBox="0 0 76.462509 11.176453"
    version="1.1"
    id="svg7069"
+   sodipodi:docname="BoopGamesText.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +23,16 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:document-units="mm"
-     showgrid="false" />
+     showgrid="false"
+     inkscape:zoom="2.0484985"
+     inkscape:cx="163.04625"
+     inkscape:cy="25.872609"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
   <defs
      id="defs7066">
     <rect
@@ -43,34 +54,88 @@
      id="layer1"
      transform="translate(-109.01027,-108.93296)">
     <g
-       id="g7047"
-       transform="matrix(0.79375,0,0,0.79375,101.14088,102.39132)"
-       inkscape:export-filename="BoopGamesText.svg"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96">
-      <text
-         xml:space="preserve"
-         transform="matrix(0.534458,0,0,0.49727805,-318.95923,-161.59349)"
-         id="text62714"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect62848);display:inline;fill:#32756c;fill-opacity:1;stroke:none"
-         inkscape:export-filename="png temp\BoopGames.png"
-         inkscape:export-xdpi="96"
-         inkscape:export-ydpi="96"><tspan
-           x="613.58008"
-           y="369.44438"
-           id="tspan7341"><tspan
-             style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
-             id="tspan7339">BOOPGAMES</tspan></tspan></text>
-      <text
-         xml:space="preserve"
-         transform="matrix(0.534458,0,0,0.49727805,-318.95923,-162.92385)"
-         id="text62720"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect62850);display:inline;fill:#ffaa47;fill-opacity:1;stroke:none"><tspan
-           x="613.58008"
-           y="369.44438"
-           id="tspan7345"><tspan
-             style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
-             id="tspan7343">BOOPGAMES</tspan></tspan></text>
+       aria-label="BOOPGAMES"
+       transform="matrix(0.42422604,0,0,0.39471445,-152.03301,-25.873513)"
+       id="text62714"
+       style="font-size:40px;line-height:1.25;white-space:pre;shape-inside:url(#rect62848);display:inline;fill:#32756c">
+      <path
+         d="m 632.82008,362.28438 q 0,7.16 -7.68,7.16 h -9.8 v -24.84 h 9.6 q 3.8,0 5.64,1.56 1.84,1.52 1.84,4.88 0,3.36 -2.76,5.12 v 0.24 q 3.16,1.24 3.16,5.88 z m -9.28,2.72 q 1.2,0 1.6,-0.52 0.44,-0.56 0.44,-2.24 0,-1.72 -0.44,-2.4 -0.44,-0.72 -1.6,-0.72 h -1.28 v 5.88 z m 0.04,-9.76 q 0.92,0 1.28,-0.56 0.36,-0.56 0.36,-1.96 0,-1.44 -0.4,-2 -0.36,-0.6 -1.28,-0.6 h -1.28 v 5.12 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path321" />
+      <path
+         d="m 636.62011,347.20438 q 2.32,-3 7.56,-3 5.24,0 7.48,2.96 2.28,2.96 2.28,9.64 0,6.64 -2.32,9.84 -2.32,3.2 -7.52,3.2 -5.2,0 -7.48,-3.16 -2.28,-3.16 -2.28,-9.8 0,-6.68 2.28,-9.68 z m 10.44,9.6 q 0,-3.68 -0.6,-4.96 -0.56,-1.32 -2.36,-1.32 -1.76,0 -2.28,1.32 -0.52,1.28 -0.52,4.92 v 0.96 q 0,3.88 0.56,5.12 0.6,1.2 2.36,1.2 1.8,0 2.32,-1.16 0.52,-1.16 0.52,-4.8 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path323" />
+      <path
+         d="m 658.14012,347.20438 q 2.32,-3 7.56,-3 5.24,0 7.48,2.96 2.28,2.96 2.28,9.64 0,6.64 -2.32,9.84 -2.32,3.2 -7.52,3.2 -5.2,0 -7.48,-3.16 -2.28,-3.16 -2.28,-9.8 0,-6.68 2.28,-9.68 z m 10.44,9.6 q 0,-3.68 -0.6,-4.96 -0.56,-1.32 -2.36,-1.32 -1.76,0 -2.28,1.32 -0.52,1.28 -0.52,4.92 v 0.96 q 0,3.88 0.56,5.12 0.6,1.2 2.36,1.2 1.8,0 2.32,-1.16 0.52,-1.16 0.52,-4.8 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path325" />
+      <path
+         d="m 686.74012,361.32438 h -1.84 v 8.12 h -6.72 v -24.84 h 8.12 q 4.28,0 6.36,1.96 2.08,1.96 2.08,6.44 0,4.48 -1.96,6.4 -1.96,1.92 -6.04,1.92 z m 0.76,-5.4 q 0.36,-0.68 0.36,-2.44 0,-1.76 -0.4,-2.48 -0.4,-0.72 -1.6,-0.72 h -0.96 v 6.32 h 1.12 q 1.12,0 1.48,-0.68 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path327" />
+      <path
+         d="m 711.70015,352.00438 q -3.84,-1.16 -5.64,-1.16 -1.76,0 -2.44,1.56 -0.64,1.56 -0.64,4.96 0,3.36 0.6,4.92 0.64,1.52 2.56,1.52 0.56,0 2.16,-0.32 v -3.04 h -1.8 v -4.72 h 7.64 v 13.72 h -4.72 l -0.64,-1.28 h -0.16 q -0.68,0.56 -1.08,0.84 -1.12,0.84 -3.16,0.84 -8.36,0 -8.36,-12.64 0,-6.32 2.2,-9.64 2.2,-3.36 7.4,-3.36 4.16,0 7.16,1.28 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path329" />
+      <path
+         d="m 735.34011,369.44438 h -6.68 l -0.76,-3.92 h -4.72 l -0.76,3.92 h -6.36 l 4.56,-24.84 h 10.16 z m -8.2,-8.6 -1.4,-8.88 h -0.28 l -1.4,8.88 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path331" />
+      <path
+         d="m 761.46008,369.44438 h -6.28 v -12.96 h -0.36 l -2.36,12.96 h -6.44 l -2.24,-12.96 h -0.4 v 12.96 h -6.2 l 0.84,-24.84 h 9 l 2.24,13.44 h 0.32 l 2.16,-13.44 h 8.88 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path333" />
+      <path
+         d="m 778.1801,369.44438 h -13.44 v -24.84 h 13.84 l -0.4,6.12 h -6.6 v 3.72 h 5.72 v 5.28 h -5.72 v 4.12 h 7 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path335" />
+      <path
+         d="m 779.78008,352.08438 q 0,-3.56 2.08,-5.72 2.08,-2.16 5.68,-2.16 3.64,0 7.44,0.72 l -0.8,6.4 q -3.96,-0.92 -5.44,-0.92 -1.88,0 -1.88,1.52 0,0.6 0.88,1.16 0.92,0.56 2.2,1.2 1.28,0.6 2.56,1.48 1.28,0.84 2.16,2.44 0.92,1.6 0.92,3.68 0,3.8 -2.04,5.88 -2.04,2.08 -5.8,2.08 -3.72,0 -7.28,-1.16 l 0.44,-5.96 q 4.28,1.24 5.96,1.24 1.68,0 1.68,-1.48 0,-0.76 -0.92,-1.4 -0.88,-0.64 -2.16,-1.28 -1.28,-0.64 -2.6,-1.48 -1.28,-0.84 -2.2,-2.44 -0.88,-1.6 -0.88,-3.8 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path337" />
+    </g>
+    <g
+       aria-label="BOOPGAMES"
+       transform="matrix(0.42422604,0,0,0.39471445,-152.03301,-26.929486)"
+       id="text62720"
+       style="font-size:40px;line-height:1.25;white-space:pre;shape-inside:url(#rect62850);display:inline;fill:#ffaa47">
+      <path
+         d="m 632.82008,362.28438 q 0,7.16 -7.68,7.16 h -9.8 v -24.84 h 9.6 q 3.8,0 5.64,1.56 1.84,1.52 1.84,4.88 0,3.36 -2.76,5.12 v 0.24 q 3.16,1.24 3.16,5.88 z m -9.28,2.72 q 1.2,0 1.6,-0.52 0.44,-0.56 0.44,-2.24 0,-1.72 -0.44,-2.4 -0.44,-0.72 -1.6,-0.72 h -1.28 v 5.88 z m 0.04,-9.76 q 0.92,0 1.28,-0.56 0.36,-0.56 0.36,-1.96 0,-1.44 -0.4,-2 -0.36,-0.6 -1.28,-0.6 h -1.28 v 5.12 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path302" />
+      <path
+         d="m 636.62011,347.20438 q 2.32,-3 7.56,-3 5.24,0 7.48,2.96 2.28,2.96 2.28,9.64 0,6.64 -2.32,9.84 -2.32,3.2 -7.52,3.2 -5.2,0 -7.48,-3.16 -2.28,-3.16 -2.28,-9.8 0,-6.68 2.28,-9.68 z m 10.44,9.6 q 0,-3.68 -0.6,-4.96 -0.56,-1.32 -2.36,-1.32 -1.76,0 -2.28,1.32 -0.52,1.28 -0.52,4.92 v 0.96 q 0,3.88 0.56,5.12 0.6,1.2 2.36,1.2 1.8,0 2.32,-1.16 0.52,-1.16 0.52,-4.8 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path304" />
+      <path
+         d="m 658.14012,347.20438 q 2.32,-3 7.56,-3 5.24,0 7.48,2.96 2.28,2.96 2.28,9.64 0,6.64 -2.32,9.84 -2.32,3.2 -7.52,3.2 -5.2,0 -7.48,-3.16 -2.28,-3.16 -2.28,-9.8 0,-6.68 2.28,-9.68 z m 10.44,9.6 q 0,-3.68 -0.6,-4.96 -0.56,-1.32 -2.36,-1.32 -1.76,0 -2.28,1.32 -0.52,1.28 -0.52,4.92 v 0.96 q 0,3.88 0.56,5.12 0.6,1.2 2.36,1.2 1.8,0 2.32,-1.16 0.52,-1.16 0.52,-4.8 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path306" />
+      <path
+         d="m 686.74012,361.32438 h -1.84 v 8.12 h -6.72 v -24.84 h 8.12 q 4.28,0 6.36,1.96 2.08,1.96 2.08,6.44 0,4.48 -1.96,6.4 -1.96,1.92 -6.04,1.92 z m 0.76,-5.4 q 0.36,-0.68 0.36,-2.44 0,-1.76 -0.4,-2.48 -0.4,-0.72 -1.6,-0.72 h -0.96 v 6.32 h 1.12 q 1.12,0 1.48,-0.68 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path308" />
+      <path
+         d="m 711.70015,352.00438 q -3.84,-1.16 -5.64,-1.16 -1.76,0 -2.44,1.56 -0.64,1.56 -0.64,4.96 0,3.36 0.6,4.92 0.64,1.52 2.56,1.52 0.56,0 2.16,-0.32 v -3.04 h -1.8 v -4.72 h 7.64 v 13.72 h -4.72 l -0.64,-1.28 h -0.16 q -0.68,0.56 -1.08,0.84 -1.12,0.84 -3.16,0.84 -8.36,0 -8.36,-12.64 0,-6.32 2.2,-9.64 2.2,-3.36 7.4,-3.36 4.16,0 7.16,1.28 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path310" />
+      <path
+         d="m 735.34011,369.44438 h -6.68 l -0.76,-3.92 h -4.72 l -0.76,3.92 h -6.36 l 4.56,-24.84 h 10.16 z m -8.2,-8.6 -1.4,-8.88 h -0.28 l -1.4,8.88 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path312" />
+      <path
+         d="m 761.46008,369.44438 h -6.28 v -12.96 h -0.36 l -2.36,12.96 h -6.44 l -2.24,-12.96 h -0.4 v 12.96 h -6.2 l 0.84,-24.84 h 9 l 2.24,13.44 h 0.32 l 2.16,-13.44 h 8.88 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path314" />
+      <path
+         d="m 778.1801,369.44438 h -13.44 v -24.84 h 13.84 l -0.4,6.12 h -6.6 v 3.72 h 5.72 v 5.28 h -5.72 v 4.12 h 7 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path316" />
+      <path
+         d="m 779.78008,352.08438 q 0,-3.56 2.08,-5.72 2.08,-2.16 5.68,-2.16 3.64,0 7.44,0.72 l -0.8,6.4 q -3.96,-0.92 -5.44,-0.92 -1.88,0 -1.88,1.52 0,0.6 0.88,1.16 0.92,0.56 2.2,1.2 1.28,0.6 2.56,1.48 1.28,0.84 2.16,2.44 0.92,1.6 0.92,3.68 0,3.8 -2.04,5.88 -2.04,2.08 -5.8,2.08 -3.72,0 -7.28,-1.16 l 0.44,-5.96 q 4.28,1.24 5.96,1.24 1.68,0 1.68,-1.48 0,-0.76 -0.92,-1.4 -0.88,-0.64 -2.16,-1.28 -1.28,-0.64 -2.6,-1.48 -1.28,-0.84 -2.2,-2.44 -0.88,-1.6 -0.88,-3.8 z"
+         style="font-family:'Passion One';-inkscape-font-specification:'Passion One'"
+         id="path318" />
     </g>
   </g>
 </svg>
