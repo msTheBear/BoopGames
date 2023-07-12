@@ -476,13 +476,7 @@ input:focus {
 }
 
 .heartIcon {
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
   cursor: pointer;
-}
-
-.heartIcon:hover {
-  transform: translate(0, -10px);
 }
 
 .heartContainer img {
