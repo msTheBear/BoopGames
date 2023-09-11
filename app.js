@@ -1,41 +1,45 @@
 const preloader = document.querySelector(".preloaderWrapper");
-const divToHide = document.querySelector(".tempMainContainer");
+const divToHide = document.querySelector(".headerContainer");
 const navToShow = document.querySelector(".navbar");
 const resultToShow = document.querySelector(".result-grid");
+const footer = document.querySelector("#footer");
+const gameSearchBox = document.getElementById("searchInput");
+const searchList = document.getElementById("search-list");
+const resultGrid = document.getElementById("result-grid");
+const gameSearchBoxHome = document.getElementById("tempSearchInput");
+const searchListHome = document.getElementById("tempSearch-list");
 
-let spinnerShowOnce = (function () {
 
-    let executed = false;
+// Spinner loader START
 
+let loadingSpinner = (function () {
     return function () {
-        if (!executed) {
-            executed = true;
-
-            preloader.classList.add("fadeOut");
-
-            setTimeout(() => {
-                preloader.classList.remove("fadeOut");
-                divToHide.style.display = "none";
-                navToShow.style.visibility = "visible";
-                resultToShow.style.visibility = "visible";
-            }, 1000);
-        }
+        preloader.classList.add("fadeOut");
+        setTimeout(() => {
+            preloader.classList.remove("fadeOut");
+            divToHide.style.display = "none";
+            navToShow.style.visibility = "visible";
+            resultToShow.style.visibility = "visible";
+            footer.style.zIndex = "5";
+        }, 2000);
     };
 })();
 
-const gameSearchBox = document.getElementById("searchInput");
-const searchList = document.getElementById("search-list");
+// Spinner loader END
 
-const resultGrid = document.getElementById("result-grid");
 
-const gameSearchBoxHome = document.getElementById("tempSearchInput");
-const searchListHome = document.getElementById("tempSearch-list");
+// Connecting to RAWG START
 
 async function loadGames(searchTerm) {
     const myKey = "2f4f3a63a70547808d67ee081a47f08b";
     const res = await axios.get(`https://api.rawg.io/api/games?key=${myKey}&search=${searchTerm}&search_exact=false&page_size=20`);
     displayGameList(res.data.results);
 }
+
+// Connecting to RAWG END
+
+
+// Game search results START
 
 function findGames() {
     let searchTerm = (gameSearchBox.value);
@@ -54,25 +58,25 @@ function displayGameList(games) {
 
     for (let i = 0; i < games.length; i++) {
         let gameListItem = document.createElement("div");
+        gameListItem.tabIndex = 0;
         gameListItem.dataset.id = games[i].id;
         gameListItem.classList.add("search-list-item");
-
         gamePoster = games[i].background_image;
         gameTitle = games[i].name;
         gameRelease = games[i].released;
 
         gameListItem.innerHTML = `
-        <div class="search-item-thumbnail">
-            <img src="${gamePoster}" alt="Game's Poster"
-            class="img-search-thumbnail">
-        </div>
+        <figure class="search-item-thumbnail">
+            <img src="${gamePoster}" alt="Game poster" aria-hidden="true"
+            class="img-search-thumbnail" loading="lazy">
+        </figure>
         <div class="search-item-info">
             <h3>${gameTitle}</h3>
-            <p>${gameRelease}</p>
+            <p aria-hidden="true">${gameRelease}</p>
         </div>`;
+
         searchList.appendChild(gameListItem);
     }
-
     loadGameDetails();
 }
 
@@ -82,12 +86,11 @@ function loadGameDetails() {
 
     searchListGames.forEach(game => {
         game.addEventListener("click", async () => {
-            // console.log(game.dataset);
+            loadingSpinner();
             searchList.classList.add("hide-search-list");
             gameSearchBox.value = "";
             const myKey = "2f4f3a63a70547808d67ee081a47f08b";
             const gameId = game.dataset.id;
-
             const result = await fetch(`https://api.rawg.io/api/games/${gameId}?key=${myKey}`);
             const resultScreenshots = await fetch(`https://api.rawg.io/api/games/${gameId}/screenshots?key=${myKey}`);
             const gameDetails = await result.json();
@@ -95,7 +98,30 @@ function loadGameDetails() {
             displayGameDetails(gameDetails, gameScreenshots);
         })
     })
+
+    searchListGames.forEach(game => {
+        game.addEventListener("keypress", async () => {
+            if (event.key === "Enter") {
+                loadingSpinner();
+                searchListHome.classList.add("hide-search-list");
+                searchList.classList.add("hide-search-list");
+                searchListHome.classList.add("hide-search-list");
+                gameSearchBox.value = "";
+                const myKey = "2f4f3a63a70547808d67ee081a47f08b";
+                const gameId = game.dataset.id;
+                const result = await fetch(`https://api.rawg.io/api/games/${gameId}?key=${myKey}`);
+                const resultScreenshots = await fetch(`https://api.rawg.io/api/games/${gameId}/screenshots?key=${myKey}`);
+                const gameDetails = await result.json();
+                const gameScreenshots = await resultScreenshots.json();
+                displayGameDetails(gameDetails, gameScreenshots);
+            }
+        })
+    })
+
 }
+
+// Game search results END
+
 
 async function loadGamesHome(searchTerm) {
     const myKey = "2f4f3a63a70547808d67ee081a47f08b";
@@ -122,21 +148,21 @@ function displayGameListHome(games) {
 
     for (let i = 0; i < games.length; i++) {
         let gameListItem = document.createElement("div");
+        gameListItem.tabIndex = 0;
         gameListItem.dataset.id = games[i].id;
         gameListItem.classList.add("search-list-item");
-
         gamePoster = games[i].background_image;
         gameTitle = games[i].name;
         gameRelease = games[i].released;
 
         gameListItem.innerHTML = `
-        <div class="search-item-thumbnail">
-            <img src="${gamePoster}" alt="Game's Poster"
-            class="img-search-thumbnail">
-        </div>
+        <figure class="search-item-thumbnail">
+            <img src="${gamePoster}" alt="Game poster" aria-hidden="true"
+            class="img-search-thumbnail" loading="lazy">
+        </figure>
         <div class="search-item-info">
             <h3>${gameTitle}</h3>
-            <p>${gameRelease}</p>
+            <p aria-hidden="true">${gameRelease}</p>
         </div>`;
 
         searchListHome.appendChild(gameListItem);
@@ -149,6 +175,7 @@ function loadGameDetailsHome() {
 
     searchListGames.forEach(game => {
         game.addEventListener("click", async () => {
+            loadingSpinner();
             searchListHome.classList.add("hide-search-list");
             gameSearchBoxHome.value = "";
             const myKey = "2f4f3a63a70547808d67ee081a47f08b";
@@ -159,12 +186,31 @@ function loadGameDetailsHome() {
             const gameDetails = await result.json();
             const gameScreenshots = await resultScreenshots.json();
 
-            spinnerShowOnce();
-
             displayGameDetails(gameDetails, gameScreenshots);
         })
     })
+
+    searchListGames.forEach(game => {
+        game.addEventListener("keypress", async () => {
+            if (event.key === "Enter") {
+                loadingSpinner();
+                searchListHome.classList.add("hide-search-list");
+                gameSearchBoxHome.value = "";
+                const myKey = "2f4f3a63a70547808d67ee081a47f08b";
+                const gameId = game.dataset.id;
+                const result = await fetch(`https://api.rawg.io/api/games/${gameId}?key=${myKey}`);
+                const resultScreenshots = await fetch(`https://api.rawg.io/api/games/${gameId}/screenshots?key=${myKey}`);
+                const gameDetails = await result.json();
+                const gameScreenshots = await resultScreenshots.json();
+
+                displayGameDetails(gameDetails, gameScreenshots);
+            }
+        })
+    })
 }
+
+
+// Game page details START
 
 function displayGameDetails(details, screenshots) {
 
@@ -227,189 +273,211 @@ function displayGameDetails(details, screenshots) {
     }
 
     resultGrid.innerHTML = `
-    <div class="mainContainer">
-            <div class="row">
-                <div class="col-md-3 col-12">
-                    <div class="movableLeftSide">
-                        <div id="gamePosterContainer">
-                            <img src="${details.background_image}" alt="Game's Poster" id="gamePoster" class="img-fluid">
-                        </div>
+            <div class="mainSection">
+                <div class="row">
+                    <div class="col-md-4 col-12">
+                        <aside class="movableLeftSide">
+                            <p class="sr-only">Game summary</p>
+                            <figure id="gamePosterContainer">
+                                <img src="${details.background_image}" alt="Game poster" id="gamePoster"
+                                    class="img-fluid" loading="lazy">
+                            </figure>
 
-                        <div class="gameTitleBox">
-                            <p id="gameTitle">${details.name}</p>
-                        </div>
-
-                        <div class="ratingContainer">
-                            <div class="row">
-                                <div class="rawgRatingMainContainer">
-                                    <div class="rawgRatingContainer">
-                                        <p id="rawgRating">${details.rating}/5</p><p><span id="rawgRatingCount">&nbsp;(${details.reviews_count} votes)</span></p>
-                                    </div>
-                                    <div>
-                                        <b><span id="stars" class="stars"></span></b>
-                                    </div>
-                                </div>
+                            <div class="gameTitleContainer">
+                                <p id="gameTitle"><span class="sr-only">Game title</span>${details.name}</p>
                             </div>
 
-                            <div>
-                                <div class="metacriticRatingContainer">
-                                    <div>
-                                        <img src="./files/icons/metacritic_logo.svg" id="metacriticLogo">&nbsp;&nbsp;&nbsp;
-                                    </div>
-                                    <div>
-                                        <a href="${details.metacritic_url}" target="_blank" class="links"
-                                            id="metacriticRatingLinkBox">
-                                            <p><span id="metacriticRating">${isRatingZero(details.metacritic)}</span></p>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <div class="ratingContainer">
+                                <div class="row">
+                                    <div class="rawgRatingMainContainer">
+                                        <div class="rawgRatingContainer">
 
-                        <div class="heartMainContainer">
-
-                            <div class="heartContainer" id="heartContainer">
-                                <?xml version="1.0" encoding="UTF-8"?>
-                                <img src="./files/icons/pixel_heart_icon.svg" alt="Heart Icon" srcset="" id="heartIcon" class="heartIcon">
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-9 col-12">
-                    <div class="rightSide" id="">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div id="mainScreenshotContainer">
-                                    <div id="carouselExampleIndicators" class="carousel slide">
-                                        <div class="carousel-inner">
-                                            <div class="carousel-item active">
-                                                <img src="${screenshot1}" class="mainScreenshot img-fluid" alt="Screenshot 1">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="${screenshot2}" class="mainScreenshot img-fluid" alt="Screenshot 2">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="${screenshot3}" class="mainScreenshot img-fluid" alt="Screenshot 3">
-                                            </div>
-                                            <div class="carousel-item">
-                                                <img src="${screenshot4}" class="mainScreenshot img-fluid" alt="Screenshot 4">
-                                            </div>
+                                            <p id="rawgRating"><span class="sr-only">Game rating out of
+                                                    5</span>${details.rating}<span aria-hidden="true">/5</span></p>
+                                            <p id="rawgRatingCount"><span class="sr-only">Number of
+                                                    votes:</span>&nbsp;&nbsp;${details.reviews_count}&nbsp;<span
+                                                    aria-hidden="true">votes</span></p>
                                         </div>
-                                        <button class="carousel-control-prev" type="button"
-                                            data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Previous</span>
-                                        </button>
-                                        <button class="carousel-control-next" type="button"
-                                            data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                            <span class="visually-hidden">Next</span>
-                                        </button>
+                                        <div>
+                                            <b><span id="stars" class="stars" aria-hidden="true"></span></b>
+                                        </div>
                                     </div>
                                 </div>
+                                <figure class="metacriticRatingContainer">
+                                    <img src="./files/icons/metacritic_logo.svg" role="img" id="metacriticLogo" loading="lazy" aria-label="Metacritic logo">
+                                    <p class="sr-only">Metacritic rating out of
+                                        100:<span>${isRatingZero(details.metacritic)}</span></p>
+                                    <a href="${details.metacritic_url}" target="_blank" class="links"
+                                        id="metacriticRatingLinkBox" aria-label="Metacritic">
+                                        <p id="metacriticRating">${isRatingZero(details.metacritic)}</p>
+                                    </a>
+                                </figure>
                             </div>
-                        </div>
+                            <figure class="heartContainer">
+                                <img src="./files/icons/pixel_heart_icon.svg" role="img" aria-label="Heart icon" class="heartIcon" id="heartIcon" loading="lazy">
+                            </figure>
+                        </aside>
+                    </div>
 
-                        <div class="screenshotsContainer">
+                    <main class="col-md-8 col-12">
+                        <section class="rightSide">
+                            <p class="sr-only">Game screenshots</p>
                             <div class="row">
-                                <div class="col-md-3 col-6">
-                                    <div id="screenshotImg1">
-                                        <img type="button" src="${screenshot1}" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="screenshots" aria-current="true" aria-label="Slide 1">
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6">
-                                    <div id="screenshotImg2">
-                                        <img type="button" src="${screenshot2}" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="screenshots" aria-current="true" aria-label="Slide 2">
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6">
-                                    <div id="screenshotImg3">
-                                        <img type="button" src="${screenshot3}" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="screenshots" aria-current="true" aria-label="Slide 3">
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-6">
-                                    <div id="screenshotImg4">
-                                        <img type="button" src="${screenshot4}" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" class="screenshots" aria-current="true" aria-label="Slide 4">
+                                <div class="col-md-12">
+                                    <div id="mainScreenshotContainer">
+                                        <div id="carouselExampleIndicators" class="carousel slide">
+                                            <div class="carousel-inner">
+                                                <figure class="carousel-item active">
+                                                    <img src="${screenshot1}" class="mainScreenshot img-fluid"
+                                                        alt="Screenshot 1" loading="lazy">
+                                                </figure>
+                                                <figure class="carousel-item">
+                                                    <img src="${screenshot2}" class="mainScreenshot img-fluid"
+                                                        alt="Screenshot 2" loading="lazy">
+                                                </figure>
+                                                <figure class="carousel-item">
+                                                    <img src="${screenshot3}" class="mainScreenshot img-fluid"
+                                                        alt="Screenshot 3" loading="lazy">
+                                                </figure>
+                                                <figure class="carousel-item">
+                                                    <img src="${screenshot4}" class="mainScreenshot img-fluid"
+                                                        alt="Screenshot 4" loading="lazy">
+                                                </figure>
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
+                            <div class="screenshotsContainer">
+                                <div class="row">
+                                    <div class="col-md-3 col-6">
+                                        <figure id="screenshotImg1">
+                                            <img type="button" src="${screenshot1}"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                                class="screenshots" aria-current="true"
+                                                aria-label="Screenshot 1 thumbnail" loading="lazy">
+                                        </figure>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <figure id="screenshotImg2">
+                                            <img type="button" src="${screenshot2}"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                                class="screenshots" aria-current="true"
+                                                aria-label="Screenshot 2 thumbnail" loading="lazy">
+                                        </figure>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <figure id="screenshotImg3">
+                                            <img type="button" src="${screenshot3}"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                                class="screenshots" aria-current="true"
+                                                aria-label="Screenshot 3 thumbnail" loading="lazy">
+                                        </figure>
+                                    </div>
+                                    <div class="col-md-3 col-6">
+                                        <figure id="screenshotImg4">
+                                            <img type="button" src="${screenshot4}"
+                                                data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                                                class="screenshots" aria-current="true"
+                                                aria-label="Screenshot 4 thumbnail" loading="lazy">
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-                    <div class="plotContainer">
-                        <div class="row">
-                            <div class="col-12 storyIconContainer">
-                                <img src="./files/icons/story_icon.svg" alt="Story Icon" id="storyIcon">
+                        <section class="descriptionContainer">
+                            <p class="sr-only">Game description</p>
+                            <div class="descriptionExpandContainer">
+                                <img src="./files/icons/description_icon.svg" role="img" aria-label="Description icon" id="descriptionIcon" aria-hidden="true" loading="lazy">
+                                <button id="description-toggle">Show full description</button>
                             </div>
-                            <div class="col-12">
-                                <p id="plot" class="show-read-more">${details.description_raw}</p>
+                            <div class="hide-show">
+                                <div class="description" id="collllapser">
+                                    <p id="description">${details.description_raw}</p>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <br>
+                        </section>
 
-                    <div class="gameInfoContainer">
-                        <div class="row">
-                            <div class="col-6 col-xl-3 platformsContainer">
-                                <div class="gameInfoUpperContainer">
-                                    <img src="./files/icons/platform_icon.svg" alt="Platform Icon" class="gameInfoIcons">
-                                    <p>PLATFORMS</p>
+                        <section class="gameInfoContainer">
+                            <p class="sr-only">Game information</p>
+                            <div class="row">
+                                <div class="col-6 col-xl-3 platformsContainer">
+                                    <figure class="gameInfoUpperContainer">
+                                        <img role="img" aria-label="Platform icon" class="gameInfoIcons"
+                                            src="./files/icons/platform_icon.svg" loading="lazy">
+                                        <p>PLATFORMS</p>
+                                    </figure>
+                                    <div class="gameInfoLowerContainer">
+                                        <p class="gameInfoLowerTitles">${platformAll.join("<br />")}</p>
+                                    </div>
                                 </div>
-                                <div class="gameInfoLowerContainer">
-                                    <p class="gameInfoLowerTitles">${platformAll.join("<br />")}</p>
+                                <div class="col-6 col-xl-3 releasedContainer">
+                                    <figure class="gameInfoUpperContainer">
+                                        <img role="img" aria-label="Release Icon" class="gameInfoIcons"
+                                            src="./files/icons/release_icon.svg" loading="lazy">
+                                        <p>RELEASED</p>
+                                    </figure>
+                                    <div class="gameInfoLowerContainer">
+                                        <p class="gameInfoLowerTitles">${details.released}</p>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-xl-3 genreContainer">
+                                    <figure class="gameInfoUpperContainer">
+                                        <img role="img" aria-label="Genre Icon" class="gameInfoIcons"
+                                            src="./files/icons/genre_icon.svg" loading="lazy">
+                                        <p>GENRE</p>
+                                    </figure>
+                                    <div class="gameInfoLowerContainer">
+                                        <p class="gameInfoLowerTitles">${genreAll.join("<br />")}</p>
+                                    </div>
+                                </div>
+                                <div class="col-6 col-xl-3 developerContainer">
+                                    <figure class="gameInfoUpperContainer">
+                                        <img role="img" aria-label="Developer Icon" class="gameInfoIcons"
+                                            src="./files/icons/developer_icon.svg" loading="lazy">
+                                        <p>DEVELOPER</p>
+                                    </figure>
+                                    <div class="gameInfoLowerContainer">
+                                        <p class="gameInfoLowerTitles">${details.developers[0].name}</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-6 col-xl-3 releasedContainer">
-                                <div class="gameInfoUpperContainer">
-                                    <img src="./files/icons/release_icon.svg" alt="Release Icon" class="gameInfoIcons">
-                                    <p>RELEASED</p>
-                                </div>
-                                <div class="gameInfoLowerContainer">
-                                    <p class="gameInfoLowerTitles">${details.released}</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-xl-3 genreContainer">
-                                <div class="gameInfoUpperContainer">
-                                    <img src="./files/icons/genre_icon.svg" alt="Genre Icon" class="gameInfoIcons">
-                                    <p>GENRE</p>
-                                </div>
-                                <div class="gameInfoLowerContainer">
-                                    <p class="gameInfoLowerTitles">${genreAll.join("<br />")}</p>
-                                </div>
-                            </div>
-                            <div class="col-6 col-xl-3 developerContainer">
-                                <div class="gameInfoUpperContainer">
-                                    <img src="./files/icons/developer_icon.svg" alt="Developer Icon" class="gameInfoIcons">
-                                    <p>DEVELOPER</p>
-                                </div>
-                                <div class="gameInfoLowerContainer">
-                                    <p class="gameInfoLowerTitles">${details.developers[0].name}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        </section>
+                    </main>
                 </div>
             </div>
-        </div>
-
-    <div id="footerBox">
-        <img src="./files/logo/BoopGamesLogo.svg" alt="Boop Games Logo" id="tempBoopGamesLogoFooter">
-        <img src="./files/logo/BoopGamesText.svg" alt="Boop Games Text" id="tempBoopGamesTextFooter">
-        <a href="https://rawg.io/" target="_blank">
-            <button id="rawgButton">R A W G</button>
-        </a>
-    </div>
-
-    <a href="https://rawg.io/" target="_blank">
-        <button id="rawgButton">R A W G</button>
-    </a>
-
     `;
 
-    // Click on a heart to start animation - START
+
+    // Show full description button START
+
+    const description = document.querySelector("#collllapser");
+    const descriptionBtn = document.querySelector("#description-toggle");
+    description.classList.add("collllapse");
+
+    descriptionBtn.addEventListener("click", () => {
+        description.classList.contains("collllapse")
+            ? (descriptionBtn.innerHTML = "Collapse description")
+            : (descriptionBtn.innerHTML = "Expand description");
+        description.classList.toggle("collllapse");
+    });
+
+    // Show full description button END
+
+
+    // Heart animation START
 
     $(document).ready(function () {
         $("#heartIcon").click(function () {
@@ -421,10 +489,10 @@ function displayGameDetails(details, screenshots) {
         });
     });
 
-    // Click on a heart to start animation - END
+    // Heart animation END
 
 
-    // Convert rating to stars - START
+    // Converting rating to stars - START
 
     document.getElementById("stars").innerHTML = getStars(details.rating);
 
@@ -434,44 +502,23 @@ function displayGameDetails(details, screenshots) {
         let output = [];
 
         for (var i = rating; i >= 1; i--)
-            output.push('<img src="./files/icons/rating_full_icon.svg" class="stars">');
+            output.push('<img src="./files/icons/rating_full_icon.svg" role="img" aria-label="Full star" class="stars">');
 
-        if (i == .5) output.push('<img src="./files/icons/rating_half_icon.svg" class="stars">');
+        if (i == .5) output.push('<img src="./files/icons/rating_half_icon.svg" role="img" aria-label="Half star" class="stars">');
 
         for (let i = (5 - rating); i >= 1; i--)
-            output.push('<img src="./files/icons/rating_empty_icon.svg" class="stars">');
+            output.push('<img src="./files/icons/rating_empty_icon.svg" role="img" aria-label="Empty star" class="Empty star">');
 
         return output.join("");
 
     }
 
-    // Convert rating to stars - END
-
-
-    // After 478 characters show a button "read more" - START
-
-    $(document).ready(function () {
-        let maxLength = 478;
-        $(".show-read-more").each(function () {
-            let myStr = $(this).text();
-            if ($.trim(myStr).length > maxLength) {
-                let newStr = myStr.substring(0, maxLength);
-                let removedStr = myStr.substring(maxLength, $.trim(myStr).length);
-                $(this).empty().html(newStr);
-                $(this).append(' <a href="javascript:void(0);" class="read-more">read more...</a>');
-                $(this).append('<span class="more-text">' + removedStr + "</span>");
-            }
-        });
-
-        $(".read-more").click(function () {
-            $(this).next(".more-text").slideToggle(200);
-            $(this).remove();
-        });
-    });
-
-    // After 478 characters show a button "read more" - END    
+    // Converting rating to stars - END
 
 }
+
+// Game page details END
+
 
 // Replace screenshots - START
 
