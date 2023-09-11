@@ -900,6 +900,14 @@ input:focus {
     max-height: 350px;
   }
 
+  #descriptionIcon {
+    width: 130px;
+  }
+
+  #description-toggle {
+    width: 120px;
+  }
+
 }
 
 /* MOBILE VIEW END */
