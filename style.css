@@ -277,14 +277,12 @@ p {
   margin-bottom: 5px;
 }
 
-.navLeftSide {
+#navbarContainer {
   width: 60%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
   margin: 0 auto;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #navbarBoopGamesContainer {
@@ -305,7 +303,7 @@ p {
 
 #navRightSide {
   border-radius: 10px;
-  width: 500px;
+  width: 350px;
   height: 50px;
   display: flex;
   justify-content: center;
@@ -606,7 +604,6 @@ input:focus {
 /* RIGHT MAIN SIDE START */
 
 .rightSide {
-  padding-top: 77px;
   margin: 0 auto;
 }
 
@@ -831,38 +828,46 @@ input:focus {
 
 /* MOBILE VIEW START */
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1366px) {
 
-  .navbar {
-    min-height: 140px;
+  .mainSection {
+    width: 80%;
+  }
+
+  #navbarContainer {
+    width: 80%;
+  }
+
+}
+
+@media only screen and (max-width: 920px) {
+
+  .mainSection {
+    margin-top: 134px;
+  }
+
+  #navbarContainer {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .navLeftSide {
-    display: block;
-    width: 90%;
+    margin-top: 10px;
+    width: 100%;
   }
 
-  #navbarBoopGamesContainer {
-    width: 100%;
-    margin-bottom: 15px !important;
+  #boopGamesLogo {
+    width: 40px;
+  }
+
+  #boopGamesText {
+    width: 230px;
   }
 
   #navRightSide {
-    width: 100%;
+    width: 500px;
+    margin: 10px;
   }
-
-  .mainSection {
-    position: relative;
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .movableLeftSide {
-    width: 100%;
-    position: sticky;
-    top: 143px;
-  }
-
 }
 
 @media only screen and (max-width: 767px) {
@@ -874,16 +879,9 @@ input:focus {
     opacity: 0.4;
   }
 
-
   .headerContainer {
     width: 90%;
     left: 5%;
-  }
-
-  .movableLeftSide {
-    width: 100%;
-    position: sticky;
-    margin-top: 115px;
   }
 
   #gamePoster {
