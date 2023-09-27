@@ -413,7 +413,7 @@ function displayGameDetails(details, screenshots) {
                         <section class="gameInfoContainer">
                             <p class="sr-only">Game information</p>
                             <div class="row">
-                                <div class="col-6 col-xl-3 platformsContainer">
+                                <div class="col-6 platformsContainer">
                                     <figure class="gameInfoUpperContainer">
                                         <img role="img" aria-label="Platform icon" class="gameInfoIcons"
                                             src="./files/icons/platform_icon.svg" loading="lazy">
@@ -423,7 +423,7 @@ function displayGameDetails(details, screenshots) {
                                         <p class="gameInfoLowerTitles">${platformAll.join("<br />")}</p>
                                     </div>
                                 </div>
-                                <div class="col-6 col-xl-3 releasedContainer">
+                                <div class="col-6 releasedContainer">
                                     <figure class="gameInfoUpperContainer">
                                         <img role="img" aria-label="Release Icon" class="gameInfoIcons"
                                             src="./files/icons/release_icon.svg" loading="lazy">
@@ -433,7 +433,7 @@ function displayGameDetails(details, screenshots) {
                                         <p class="gameInfoLowerTitles">${details.released}</p>
                                     </div>
                                 </div>
-                                <div class="col-6 col-xl-3 genreContainer">
+                                <div class="col-6 genreContainer">
                                     <figure class="gameInfoUpperContainer">
                                         <img role="img" aria-label="Genre Icon" class="gameInfoIcons"
                                             src="./files/icons/genre_icon.svg" loading="lazy">
@@ -443,7 +443,7 @@ function displayGameDetails(details, screenshots) {
                                         <p class="gameInfoLowerTitles">${genreAll.join("<br />")}</p>
                                     </div>
                                 </div>
-                                <div class="col-6 col-xl-3 developerContainer">
+                                <div class="col-6 developerContainer">
                                     <figure class="gameInfoUpperContainer">
                                         <img role="img" aria-label="Developer Icon" class="gameInfoIcons"
                                             src="./files/icons/developer_icon.svg" loading="lazy">
