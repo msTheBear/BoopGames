@@ -818,6 +818,7 @@ input:focus {
 
 #rawgButton {
   padding: 5px 10px 5px 10px;
+  text-decoration: none;
   border: none;
   background-color: transparent;
   color: white;
